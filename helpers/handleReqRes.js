@@ -35,24 +35,22 @@ handler.handleReqRes = (req,res) =>{
     const decoder = new StringDecoder('utf-8');
     let realData = '';
 
-    const chosenHandler = routes[trimmedPath] ? routes[trimmedPath] : notFoundHandle;
-    chosenHandler(requestProperties,(statusCode,payload) => {
-        statusCode = typeof (statusCode) === 'number' ? statusCode:500;
-        payload = typeof(payload) === 'object' ? payload : {};
-
-        const payLoadString = JSON.stringify(payload);
-
-        //return the final object
-        res.writeHead(statusCode);
-        res.end(payLoadString);
-    });
-
     req.on('data',(buffer)=>{
         realData += decoder.write(buffer);
     });
+
     req.on('end',()=>{
         realData += decoder.end();
-        console.log(realData);
+
+        const chosenHandler = routes[trimmedPath] ? routes[trimmedPath] : notFoundHandle;
+            chosenHandler(requestProperties,(statusCode,payload) => {
+            statusCode = typeof (statusCode) === 'number' ? statusCode:500;
+            payload = typeof(payload) === 'object' ? payload : {};
+            const payLoadString = JSON.stringify(payload);
+            //return the final object
+            res.writeHead(statusCode);
+            res.end(payLoadString);
+        });
         //Response handle
         res.end('Hello world');
     });
