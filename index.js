@@ -15,9 +15,14 @@ const data = require('./lib/data')
 const app = {};
 
 //testing file
-data.create('test','newFile', {name:'Maruf',language:'Deutsch'},(err)=>{
-    console.log('error was' , err);
-});
+// data.create('test','newFile', {name:'Maruf',language:'Deutsch'},function (err){
+//     console.log('error was' , err);
+// });
+
+// data.delete('test','newFile',(err)=> {
+//     console.log(err);
+// });
+
 
 
 //create server
