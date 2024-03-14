@@ -9,6 +9,7 @@ const handler = {};
 
 handler.sampleHandle = (requestProperties,callback) =>{
     console.log(requestProperties);
+
 callback(200,{
     message : 'This is a Sample url'
 });
