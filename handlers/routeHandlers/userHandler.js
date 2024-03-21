@@ -95,9 +95,9 @@ handler._users.post = (requestProperties, callback) => {
 handler._users.get= (requestProperties,callback) => {
    //check the phone number is valid
     const phone =
-        typeof requestProperties.body.phone === 'string' &&
-        requestProperties.body.phone.trim().length === 11
-            ? requestProperties.body.phone
+        typeof requestProperties.queryString.phone === 'string' &&
+        requestProperties.queryString.phone.trim().length === 11
+            ? requestProperties.queryString.phone
             : false;
     if(phone){
         //lookup the user
@@ -200,9 +200,9 @@ handler._users.put= (requestProperties,callback) => {
 handler._users.delete= (requestProperties,callback) => {
 //check the phone number is valid
     const phone =
-        typeof requestProperties.body.phone === 'string' &&
-        requestProperties.body.phone.trim().length === 11
-            ? requestProperties.body.phone
+        typeof requestProperties.queryString.phone === 'string' &&
+        requestProperties.queryString.phone.trim().length === 11
+            ? requestProperties.queryString.phone
             : false;
     if(phone){
         //look up the user
