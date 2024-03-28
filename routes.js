@@ -4,14 +4,17 @@
  *Author:Md Maruf Hossain
  * Date 08/03/2024
 */
-//dependencies
-const {sampleHandle} = require('./handlers/routeHandlers/sampleHandler');
-const {userHandler} = require('./handlers/routeHandlers/userHandler');
-const {tokenHandler} = require('./handlers/routeHandlers/tokenHandler');
+// dependencies
+const { sampleHandler } = require('./handlers/routeHandlers/sampleHandler');
+const { userHandler } = require('./handlers/routeHandlers/userHandler');
+const { tokenHandler } = require('./handlers/routeHandlers/tokenHandler');
+const { checkHandler } = require('./handlers/routeHandlers/checkHandler');
 
 const routes = {
-    sample: sampleHandle,
+    sample: sampleHandler,
     user: userHandler,
-    token:tokenHandler
+    token: tokenHandler,
+    check: checkHandler,
 };
+
 module.exports = routes;

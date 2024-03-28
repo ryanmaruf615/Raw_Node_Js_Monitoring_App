@@ -32,6 +32,7 @@ handler.handleReqRes = (req,res) =>{
         method,
         queryString,
         headersObject,
+
     };
 
     const decoder = new StringDecoder('utf-8');
